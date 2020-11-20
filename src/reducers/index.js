@@ -1,3 +1,5 @@
+import { combineReducers } from "redux";
+
 function counterReducer (state = 0, action) {
   switch(action.type){
       case "INCREMENT":
@@ -9,4 +11,6 @@ function counterReducer (state = 0, action) {
   }
 }
 
-export default counterReducer;
+export const allReducers = combineReducers({
+    counterReducer
+});
