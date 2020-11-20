@@ -1,13 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import { connect } from "react-redux";
+import { increment, decrement } from "./actions";
 import { Button } from "react-bootstrap";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
        <div>
-         <h1>Counter: 0</h1>
+         <h1>Counter: {props.counter}</h1>
          <Button variant="success" className="mr-2">Increment</Button>
          <Button variant="danger">Decrement</Button>
        </div>
@@ -16,4 +17,17 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    counter: state.counterReducer
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+ return {
+   incrementCount: number => dispatch(increment(number)),
+   decrementCount: number => dispatch(decrement(number))
+ }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
