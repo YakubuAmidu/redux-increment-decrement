@@ -4,12 +4,16 @@ import { increment, decrement } from "./actions";
 import { Button } from "react-bootstrap";
 
 function App(props) {
+   function handleIncrement() {
+     props.incrementCount(1)
+   }
+
   return (
     <div className="App">
       <header className="App-header">
        <div>
          <h1>Counter: {props.counter}</h1>
-         <Button variant="success" className="mr-2">Increment</Button>
+         <Button variant="success" className="mr-2" onClick={() => handleIncrement()}>Increment</Button>
          <Button variant="danger">Decrement</Button>
        </div>
       </header>
