@@ -8,13 +8,17 @@ function App(props) {
      props.incrementCount(1)
    }
 
+   function handleDecrement(){
+     props.decrementCount(1)
+   }
+
   return (
     <div className="App">
       <header className="App-header">
        <div>
          <h1>Counter: {props.counter}</h1>
          <Button variant="success" className="mr-2" onClick={() => handleIncrement()}>Increment</Button>
-         <Button variant="danger">Decrement</Button>
+         <Button variant="danger" onClick={() => handleDecrement()}>Decrement</Button>
        </div>
       </header>
     </div>
